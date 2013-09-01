@@ -1,16 +1,13 @@
 import os
 import sys
 
-from os.path import join as pjoin
-
 from setuptools import setup
-from setuptools import Command
-from subprocess import call
 
 
 def read_version_string():
     version = None
-    sys.path.insert(0, pjoin(os.getcwd()))
+    current_dir = os.path.abspath(os.path.dirname(__file__))
+    sys.path.insert(0, current_dir)
     from log_formatters import __version__
     version = __version__
     sys.path.pop(0)
